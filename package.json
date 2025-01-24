@@ -1,0 +1,25 @@
+{
+  "name": "s06e05-oblog-sylvie-ld",
+  "version": "1.0.0",
+  "description": "![Aperçu](integration/apercu.png \"Aperçu\")",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Sushi/S06E05-OBlog-Sylvie-LD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Sushi/S06E05-OBlog-Sylvie-LD/issues"
+  },
+  "homepage": "https://github.com/O-clock-Sushi/S06E05-OBlog-Sylvie-LD#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  },
+  "type": "module"
+}
