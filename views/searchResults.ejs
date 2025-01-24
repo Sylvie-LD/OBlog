@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+
+<article class="post pure-u-1">
+    <header>
+      <h1>Résultat de la recherche</h1>
+      <div class="post-meta">
+        
+      </div>
+    </header>
+    
+
+      <figcaption class="post-picture-caption">
+       
+      </figcaption>
+    </figure>
+    <div class="post-content">
+    
+        <section class="search-results">
+            <% if (foundCategory.length === 0) {%>
+                <div class="search-results--no-result">
+                    Nous n'avons trouvé aucun article correspondant à votre recherche
+                </div>
+            <% } else {%>
+                <div class="search-results--summary">
+                    Nous avons trouvé <%= foundCategory.length %> article <%= foundCategory.length > 1 ? "s" : "" %>
+                    correspondant à votre recherche
+                </div>
+        
+                <% for (const article of foundCategory) { %>
+                    <div class="search-results--item">
+                        <strong class="search-results--item-title"><%= article.title %></strong>
+                        <strong class="search-results--item-title">de l'auteur <%= article.author %></strong>
+                        <span class="search-results--item-link">
+                            Pour le consulter :
+                            <a href="/article/<%= article.id %>"><%= article.title %></a>
+                        </span>
+                    </div>
+                <% } %>
+            <% } %>
+        </section>
+    </div>
+  </article>
+
+
+
+
+
+
+
+<%- include('partials/footer',{ isHomePage: false }) %>

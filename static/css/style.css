@@ -121,3 +121,44 @@ a:hover, a:focus {
     width: 6em;
   }
 }
+
+
+
+.center {
+  text-align: center;
+}
+
+.search-form {
+  text-align: center;
+}
+
+.search-form--input, .search-form--button {
+  padding: 10px;
+  border-radius: 0;
+  border: solid 1px #999;
+}
+
+.search-results {
+  width: 80%;
+  margin: auto;
+  padding: 50px 0;
+}
+
+.search-results--summary {
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+}
+
+.search-results--item {
+  padding: 3px 0;
+}
+
+.search-results--item-link::before {
+  content: " - ";
+}
+
+.search-results--item-link a {
+  color: #999;
+  text-decoration: underline;
+}

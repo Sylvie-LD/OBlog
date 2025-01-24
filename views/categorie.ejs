@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+          <article class="post pure-u-1">
+            <header>
+                
+
+
+              <h1>Voici les article de la catégorie <%= article.category %>.</h1>
+
+               <% for (const article of articles) { %>
+              <div class="post-meta">
+                Par <a href="#"><%= article.author %></a> dans la catégorie
+                <a href="#"><%= article.category %></a>
+              </div>
+            </header>
+            <figure class="post-picture">
+              <img
+                class="pure-img"
+                src="/images/<%= article.img %>"
+                alt="<%= article.img_alt %>"
+              />
+
+              <figcaption class="post-picture-caption">
+                <%= article.sub_title %>
+              </figcaption>
+            </figure>
+            <div class="post-content">
+              <p><%= article.text %>.</p>
+            </div>
+          </article>
+        </div>
+        <% } %>
+<%- include('partials/footer', { isHomePage: false }) %>

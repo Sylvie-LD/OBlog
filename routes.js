@@ -44,4 +44,22 @@ router.get("/article/:id", (req, res, next) => {
     res.render("article", { article, isHomePage: false });
   });
 
+  router.get("/search", (req, res) => {
+    res.render("search");
+});
+
+
+router.get("/search/results", (req, res) => {
+        const search = req.query.search;
+
+        // on cherche les articles qui ont telle catégorie
+    const foundCategory = articles.filter(article => {
+        return article.category.toLowerCase().includes(search.toLowerCase())
+            
+    });
+
+    res.render("searchResults", { foundCategory });
+});
+
+
 export default router;
