@@ -26,20 +26,22 @@ router.get("/", (req, res) => {
 
 // route paramétrée, qui mène vers chaque article
 
-router.get("/article/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const article = articles.find((article) => article.id === id);
-  console.log(article.id);
-  console.log(typeof article.id);
-  console.log(req.params.id);
-  console.log(typeof req.params.id);
-
-  // On vérifie que le film demandé dans l'URL existe bien
-  // if (!film || isNaN(id)) {
-  //   console.log(`Film introuvable pour l'ID ${id}`);
-  //   return next();
-  // }
-  res.render("article", { article , isHomePage: false });
-});
+router.get("/article/:id", (req, res, next) => {
+    const id = parseInt(req.params.id, 10); // Convertit en entier
+    console.log("Type de req.params.id :", typeof req.params.id); // Affiche "string"
+    console.log("Type de id après parseInt :", typeof id); // Affiche "number"
+  
+    
+    // Trouver l'article correspondant
+    const article = articles.find((article) => article.id === id);
+  
+    // si le numéro de l'article n'exite pas on renvoie le middleware d'erreur 404
+    if (!article) {
+      return next();
+    }
+  
+    // Rendre la page de l'article
+    res.render("article", { article, isHomePage: false });
+  });
 
 export default router;

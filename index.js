@@ -10,6 +10,11 @@ app.use(express.static(path.join(process.cwd(), "static"))); // On rend accessib
 
 app.use(routes);
 
+app.use((req, res) => {
+    res.status(404).render('error404', { path: req.path });
+});
+
+
 // ----- serveur à l'écoute ---
 const port = 3000;
 app.listen(port, () => {
