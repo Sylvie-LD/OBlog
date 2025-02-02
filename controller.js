@@ -2,7 +2,15 @@ import articles from './data/articles.json' with {type : 'json'};
 
 export const controller = {
     home : (req,res) => {
-        res.render("index", { articles , isHomePage: true });
+      // on va enrichir nos articles avec un résumé
+    for (let index = 0; index < articles.length; index++) {
+      const text = articles[index].text;
+      let words = text.split(' ');
+      words = words.slice(0, 30);
+      const excerpt = words.join(' ');
+      articles[index].excerpt = excerpt;
+    }
+        res.render("index", { articles });
     },
 
     article : (req, res, next) =>{
@@ -18,7 +26,7 @@ export const controller = {
             return next();
               }
   // Rendre la page de l'article
-  res.render("article", { article, isHomePage: false });
+  res.render("article", { article });
 },
 
 category: (req, res) => {
